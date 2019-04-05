@@ -1,0 +1,117 @@
+body {
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    height: 15%;
+    background-color: green;
+    position: relative;
+}
+.logo {
+    background-color: aqua;
+    float: left;
+    top: 17%;
+    left: 3%;
+    height: 60%;
+    width: 15%;
+    position: absolute;
+}
+.title {
+    background-color: purple;
+    float: left;
+    top: 17%;
+    right: 26%;
+    height: 60%;
+    width: 33%;
+    position: absolute;
+}
+
+.gameBody {
+    background-color: aquamarine;
+    height: 70%;
+    position: relative;
+}
+
+.row {
+    background-color: deeppink;
+    height: 33.33%;
+    position: relative;
+}
+
+.cardContainer {
+    background-color: dodgerblue;
+    height: 100%;
+    width: 16.66%;
+    float: left;
+    position: relative;
+}
+
+.card {
+    background-color: lightgreen;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
+    position: relative;
+    float: left;
+}
+
+.front{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.back{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url(images/back.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.stats {
+    background-color: orange;
+    height: 15%;
+    position: relative;
+}
+.matches {
+    background-color: indianred;
+    position: absolute;
+    left:0.5%;
+    height:90%;
+    top: 5%;
+    width:20%;
+}
+.attempts {
+    background-color: cyan;
+    position: absolute;
+    left:21%;
+    height:90%;
+    top: 5%;
+    width:20%;
+}
+.accuracy {
+    background-color: lime;
+    position: absolute;
+    left:41.5%;
+    height:90%;
+    top: 5%;
+    width:20%;
+}
+.info {
+    background-color: slategrey;
+    position: absolute;
+    right: 0.5%;
+    height:90%;
+    top: 5%;
+    width:35%;
+}
