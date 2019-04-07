@@ -6,6 +6,7 @@ function startApp (){
     gameOverClick();
     startNewGame();
     reloadNewGame();
+    pressPauseButton();
     newImageArray = imageArray.concat(imageArray);
     shuffleArray(newImageArray);
     cardFronts = $('.front');
@@ -27,6 +28,7 @@ function startApp (){
     victory.hide();
     victoryNewGame = $('.victoryNewGame');
     victoryNewGame.hide();
+    pauseAudio=$('.pauseAudioButton');
     playStartMusic();
 }
 var firstCardClicked = null;
@@ -62,12 +64,13 @@ var fanfareAudio = new Audio('audio/fanfare.mp3');
 var damageAudio = new Audio('audio/damage.mp3');
 var fireAudio = new Audio('audio/fire.mp3');
 var deathAudio = new Audio('audio/enemyDeath.mp3');
+var pauseAudio;
+var audioStatus = true;
 
 function playStartMusic () {
-    preludeAudio.loop = true;
+    preludeAudio.autoplay = true;
     preludeAudio.currentTime = 0;
     preludeAudio.volume = 0.4;
-    preludeAudio.play();
 }
 function transitionToGame () {
     battleAudio.volume = 0.4;
@@ -108,6 +111,18 @@ function playContinueGameSound () {
     battleAudio.currentTime = 0;
     battleAudio.play();
 }
+function pauseGameAudio () {
+    playCursorSound();
+    if (audioStatus){
+        battleAudio.pause();
+        audioStatus=!audioStatus;
+    }
+    else {
+        audioStatus=!audioStatus;
+        battleAudio.currentTime = 0;
+        battleAudio.play();
+    }
+}
 function shuffleArray(array){
     var temp;
     var index;
@@ -126,11 +141,14 @@ function setImages (){
         $(cardFronts.get(index)).css('background-image', 'url(images/' + newImageArray[index] + ')');
     }
 }
+function pressPauseButton() {
+    $('.pauseAudioButton').on('click', pauseGameAudio);
+}
 function cardClicked () {
     $('.card').on('click', toggleBack);
 }
 function startClick () {
-    $('.startButton').click(hideStart);
+    $('.startButton').on('click', hideStart);
 }
 function hideStart () {
     gameStart.hide();
@@ -151,8 +169,6 @@ function toggleBack() {
         $(secondCardClicked).toggleClass('flipped');
         if ($(firstCardClicked).children().css('background-image') === $(secondCardClicked).children().css('background-image')) {
             $(secondCardClicked).off('click');
-            $(firstCardClicked).parent().css('opacity', 0.7);
-            $(secondCardClicked).parent().css('opacity', 0.7);
             matchCounter++;
             matches++;
             attempts++;
