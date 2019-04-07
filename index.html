@@ -5,156 +5,159 @@
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/ferrum" type="text/css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="header">
-    <div class="logo"> Logo </div>
-    <div class="title title1"> Title </div>
-</div>
-
 <div class="gameBody">
     <div class="row">
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front">
-                    <div class="back"></div>
-                </div>
+                <div class="front"></div>
+                <div class="back"></div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="stats">
-    <div class="matches"></div>
-    <div class="attempts"></div>
-    <div class="accuracy"></div>
-    <div class="info"></div>
+    <div class="enemyStats">
+        <div class="enemyHp"></div>
+    </div>
+    <div>
+        <img src="images/blackMageIdle.gif" class="blackMageIdle">
+        <img src="images/blackMageFire.gif" class="blackMageFire">
+    </div>
+    <div class="enemy">
+        <img src="images/enemyIdle.gif" class="enemyIdle">
+        <img src="images/enemyCasting.gif" class="enemyCasting">
+        <img src="images/enemyDamaged.gif" class="enemyDamaged">
+    </div>
+    <div class="info">
+        <div class="matches"></div>
+        <div class="attempts"></div>
+        <div class="accuracy"></div>
+        <div class="gamesPlayed"></div>
+        <div class="hp"></div>
+    </div>
 </div>
-
-
+<div class="gameStart">
+    <div class="begin">
+        <button class="startButton">NEW GAME</button>
+    </div>
+</div>
+<div class="gameOver">
+    <button class="continue">CONTINUE?</button>
+    <button class="newGame">RELOAD</button>
+</div>
+<video id="victory">
+    <source type="video/mp4" src="videos/victory.mp4">
+</video>
+<button class="victoryNewGame"> RELOAD </button>
 </body>
 </html>

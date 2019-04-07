@@ -1,60 +1,41 @@
 body {
     height: 100vh;
     position: relative;
+    background-image: url(images/background.jpg);
+    background-size: cover;
 }
-
-.header {
-    height: 15%;
-    background-color: green;
-    position: relative;
-}
-.logo {
-    background-color: aqua;
-    float: left;
-    top: 17%;
-    left: 3%;
-    height: 60%;
-    width: 15%;
-    position: absolute;
-}
-.title {
-    background-color: purple;
-    float: left;
-    top: 17%;
-    right: 26%;
-    height: 60%;
-    width: 33%;
-    position: absolute;
+@font-face {
+    font-family: 'finalfantasy';
+    src:url('fonts/finalFantasy.ttf');
 }
 
 .gameBody {
-    background-color: aquamarine;
-    height: 70%;
+    height: 80%;
     position: relative;
 }
 
 .row {
-    background-color: deeppink;
     height: 33.33%;
     position: relative;
 }
 
 .cardContainer {
-    background-color: dodgerblue;
     height: 100%;
     width: 16.66%;
     float: left;
     position: relative;
+    perspective: 1000px;
 }
 
 .card {
-    background-color: lightgreen;
     top: 5%;
     left: 5%;
     height: 90%;
     width: 90%;
     position: relative;
     float: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .front{
@@ -63,6 +44,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
     background-size: cover;
     background-position: center;
 }
@@ -73,45 +56,215 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    background-image: url(images/back.jpg);
+    backface-visibility: hidden;
+    background-image: url(images/finalfantasycardlogo.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flipped{
+    transform: rotateY(180deg);
 }
 
 .stats {
-    background-color: orange;
-    height: 15%;
+    background-color: rgba(255,255,255,0.4);
+    height: 20%;
+    color: white;
     position: relative;
 }
-.matches {
-    background-color: indianred;
+
+.blackMageIdle {
+     position: absolute;
+     height: 80%;
+     top: 10%;
+     left: 45%;
+ }
+
+.blackMageFire {
     position: absolute;
-    left:0.5%;
-    height:90%;
-    top: 5%;
-    width:20%;
+    height: 80%;
+    top: 10%;
+    left: 40%;
 }
-.attempts {
-    background-color: cyan;
+
+.enemyIdle {
     position: absolute;
-    left:21%;
-    height:90%;
+    height: 90%;
     top: 5%;
-    width:20%;
+    left: 25%;
 }
-.accuracy {
-    background-color: lime;
+
+.enemyCasting {
     position: absolute;
-    left:41.5%;
-    height:90%;
+    height: 90%;
     top: 5%;
-    width:20%;
+    left: 25%;
 }
+
+.enemyDamaged {
+    position: absolute;
+    height: 95%;
+    left: 25%;
+}
+
 .info {
-    background-color: slategrey;
+    background-image: url(images/hpBar.png);
+    font-family: 'finalfantasy';
+    font-size: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
+    text-align: left;
     right: 0.5%;
     height:90%;
-    top: 5%;
-    width:35%;
+    top: 7%;
+    width:45%;
 }
+
+.matches {
+    position: absolute;
+    left:5%;
+    height:20%;
+    top: 10%;
+    width:30%;
+
+}
+
+.attempts {
+    position: absolute;
+    left: 5%;
+    height:20%;
+    top: 25%;
+    width:30%;
+}
+
+.accuracy {
+    position: absolute;
+    left: 5%;
+    height:20%;
+    top: 40%;
+    width:30%;
+}
+
+.gamesPlayed {
+    position: absolute;
+    left: 5%;
+    height:20%;
+    top: 55%;
+    width:30%;
+}
+
+.hp {
+    position: absolute;
+    font-size: 14px;
+    left: 45.5%;
+    top:15%;
+    width:19%;
+    height:12%;
+}
+
+.enemyStats{
+    position: absolute;
+    font-family: 'finalfantasy';
+    font-size: 14px;
+    background-image: url(images/enemyHp.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 1%;
+    height: 90%;
+    top: 7%;
+    width: 20%;
+}
+
+.enemyHp {
+    position: absolute;
+    left: 7%;
+    top: 15%;
+    width: 19%;
+    height: 12%;
+}
+
+.gameStart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-image: url(images/startScreen.jpeg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.startButton{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-family: 'finalfantasy';
+    font-size: 16px;
+    color: black;
+    height: 6%;
+    width: 10%;
+    left: 42%;
+    top: 73%;
+}
+
+.gameOver {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(images/gameOver.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+#victory{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.victoryNewGame{
+    font-family: 'finalfantasy';
+    font-size: 18px;
+    color: white;
+    border:none;
+    background-color: transparent;
+    position: absolute;
+    text-align: center;
+    bottom: 8%;
+    left: 50%;
+}
+
+.newGame{
+    position: absolute;
+    font-family: 'finalfantasy';
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    height: 7%;
+    width: 15%;
+    left: 41%;
+    top: 55%;
+}
+
+.continue {
+    position: absolute;
+    font-family: 'finalfantasy';
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    height: 7%;
+    width: 15%;
+    left: 41%;
+    top: 63%;
+}
+
