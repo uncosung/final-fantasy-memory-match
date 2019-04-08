@@ -237,10 +237,10 @@ body {
     position: absolute;
     font-family: 'finalfantasy';
     font-size: 1vw;
-    height: 10%;
-    width: 10%;
+    height: 5%;
+    width: 5%;
     top: 0;
-    right: 0;
+    right: 1%;
     border: none;
     background: transparent;
 }
