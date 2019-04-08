@@ -29,7 +29,12 @@ function startApp (){
     victoryNewGame = $('.victoryNewGame');
     victoryNewGame.hide();
     pauseAudio=$('.pauseAudioButton');
+    aboutPage = $('.aboutPage');
+    xButton = $('.xButton');
+    aboutPage.hide();
     playStartMusic();
+    aboutClick();
+    xClick();
 }
 var firstCardClicked = null;
 var secondCardClicked = null;
@@ -66,9 +71,11 @@ var fireAudio = new Audio('audio/fire.mp3');
 var deathAudio = new Audio('audio/enemyDeath.mp3');
 var pauseAudio;
 var audioStatus = true;
+var aboutPage;
+var xButton;
 
 function playStartMusic () {
-    preludeAudio.autoplay = true;
+    preludeAudio.play();
     preludeAudio.currentTime = 0;
     preludeAudio.volume = 0.4;
 }
@@ -149,6 +156,20 @@ function cardClicked () {
 }
 function startClick () {
     $('.startButton').on('click', hideStart);
+}
+function aboutClick () {
+    $('.aboutButton').on('click', showAbout);
+}
+function xClick () {
+    $('.xButton').on('click', hideAbout);
+}
+function showAbout () {
+    playCursorSound();
+    aboutPage.show();
+}
+function hideAbout() {
+    playCursorSound();
+    aboutPage.hide();
 }
 function hideStart () {
     gameStart.hide();
