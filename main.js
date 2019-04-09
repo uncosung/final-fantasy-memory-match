@@ -38,13 +38,13 @@ function startApp (){
 }
 var firstCardClicked = null;
 var secondCardClicked = null;
-var totalPossibleMatches = 9;
 var matchCounter = 0;
 var canBeClicked = true;
 var matches = 0;
 var attempts = 0;
 var accuracyPercent = 0;
 var gamesPlayed = 0;
+var totalPossibleMatches = 9;
 var imageArray = ['auron.jpg', 'cactuar.jpg', 'cloud.jpg', 'lightning.jpg', 'sazh.jpg', 'sephiroth.jpg', 'squall.jpg', 'tidus.jpg', 'yuna.jpg'];
 var newImageArray;
 var cardFronts;
@@ -288,7 +288,8 @@ function newGamePress () {
     location.reload();
 }
 function gameOverContinue () {
-    console.log('continue');
+    $('.card').off('click');
+    $('.card').on('click', toggleBack);
     canBeClicked = true;
     hp = 999;
     $('.hp').text(hp+'/999');
@@ -297,6 +298,11 @@ function gameOverContinue () {
     $('.card').removeClass('flipped');
     gamesPlayed++;
     $('.gamesPlayed').text('GAMES PLAYED: '+gamesPlayed);
+    matches = 0;
+    $('.matches').text('MATCHES: '+matches);
+    attempts = 0;
+    $('.attempts').text('ATTEMPTS: '+attempts);
+    $('.accuracy').text('ACCURACY: 0.00%');
     gameOver.hide();
     playContinueGameSound();
 }
