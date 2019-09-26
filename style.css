@@ -134,13 +134,52 @@ body {
     top: 55%;
 }
 
-.hp {
+.info .progress {
     position: absolute;
     font-size: 14px;
-    left: 45.5%;
-    top:15%;
-    width:19%;
-    height:12%;
+    left: 45%;
+    height: 12%;
+    top: 15%;
+    width: 19%;
+}
+
+.enemyStats .progress {
+    position: absolute;
+    font-size: 14px;
+    left: 7%;
+    height: 12%;
+    top: 15%;
+    width: 40%
+}
+
+#playerHealth, #enemyHealth {
+    position: absolute;
+    height: 15%;
+}
+
+#playerHealth {
+    width: 19%;
+}
+
+#enemyHealth {
+    width: 42.5%;
+}
+
+.playerHp, .enemyHp {
+    position:absolute;
+    font-size: 14px;
+    color: black;
+    top: 10%;
+    left: 18%;
+}
+
+#playerHealth .progress-bar , #enemyHealth  .progress-bar{
+    font-size: 16px;
+    transition: width .5s linear;
+    background-image: linear-gradient(to right, rgb(0, 197, 0), rgb(0, 145, 0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .enemyStats{
@@ -154,14 +193,6 @@ body {
     height: 90%;
     top: 7%;
     width: 20%;
-}
-
-.enemyHp {
-    position: absolute;
-    left: 7%;
-    top: 15%;
-    width: 19%;
-    height: 12%;
 }
 
 .gameStart {
