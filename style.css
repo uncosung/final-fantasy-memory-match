@@ -100,7 +100,7 @@ body {
 .info {
     background-image: url(images/hpBar.png);
     font-family: 'finalfantasy';
-    font-size: 0.5rem;
+    font-size: 1rem;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -142,6 +142,7 @@ body {
     position: absolute;
     right: 15%;
     top: 10%;
+    font-size: 1.25rem;
 }
 
 .info .progress {
@@ -209,7 +210,7 @@ body {
     position: absolute;
     top: 8%;
     right: 10%;
-    font-size: 12px;
+    font-size: 1.25rem;
 }
 
 .gameRules {
@@ -262,7 +263,6 @@ body {
 }
 
 .startButton, .aboutButton{
-    font-size: 0.75rem;
     color: black;
     height: 6%;
     width: 10%;
@@ -307,7 +307,7 @@ body {
 }
 
 .pauseAudioButton{
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     color: white;
     bottom: 33%;
     right: 10%;
@@ -316,7 +316,7 @@ body {
 }
 
 .victoryNewGame{
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     color: white;
     text-align: center;
     bottom: 8%;
@@ -324,7 +324,7 @@ body {
 }
 
 .newGame{
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     color: white;
     height: 7%;
     width: 15%;
@@ -333,7 +333,7 @@ body {
 }
 
 .continue {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     color: white;
     height: 7%;
     width: 15%;
