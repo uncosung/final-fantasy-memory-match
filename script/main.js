@@ -18,6 +18,7 @@ function startApp () {
     $('.card').on('click', game.toggleBack);
     $('.startButton').on('click', game.hideStart);
     $('.aboutButton').on('click', game.showAbout);
+    $('.gameRules').on('click', game.showAbout);
     $('.xButton').on('click', game.hideAbout);
     $('.continue').on('click', game.gameOverContinue);
     $('.newGame').on('click', game.newGamePress);

@@ -111,27 +111,37 @@ body {
     width:45%;
 }
 
-.matches, .attempts, .accuracy, .gamesPlayed {
+.matches, .attempts, .accuracy, .gamesPlayed, .infoTitle {
     position: absolute;
     left: 5%;
     height: 20%;
     width: 30%;
 }
 
-.matches {
+.infoTitle {
     top: 10%;
 }
 
-.attempts {
+.matches {
     top: 25%;
 }
 
-.accuracy {
+.attempts {
     top: 40%;
 }
 
-.gamesPlayed {
+.accuracy {
     top: 55%;
+}
+
+.gamesPlayed {
+    top: 70%;
+}
+
+.playerNamePlate {
+    position: absolute;
+    right: 15%;
+    top: 10%;
 }
 
 .info .progress {
@@ -195,6 +205,22 @@ body {
     width: 20%;
 }
 
+.enemyNamePlate{
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    font-size: 12px;
+}
+
+.gameRules {
+    position: absolute;
+    background-color: none;
+    font-size: 16px;
+    color: white;
+    bottom: 22%;
+    left: 25%;
+}
+
 .gameStart {
     position: absolute;
     width: 100%;
@@ -228,7 +254,7 @@ body {
     top: 0;
 }
 
-.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton {
+.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRules {
     font-family: 'finalfantasy';
     position: absolute;
     background-color: transparent;
@@ -256,7 +282,7 @@ body {
     font-family: 'finalfantasy';
     background-color: white;
     position: absolute;
-    font-size: 1vw;
+    font-size: 0.85vw;
     height: 40%;
     width: 25%;
     left: 35%;
@@ -270,20 +296,21 @@ body {
     height: 5%;
     width: 5%;
     top: 0;
-    right: 1%;
+    right: 3%;
     border: none;
     background: transparent;
 }
 
 .aboutDetails {
     position:relative;
+    width: 90%;
 }
 
 .pauseAudioButton{
     font-size: 16px;
     color: white;
     bottom: 33%;
-    right: 15%;
+    right: 10%;
     height:6%;
     width: 40%;
 }
