@@ -100,7 +100,7 @@ body {
 .info {
     background-image: url(images/hpBar.png);
     font-family: 'finalfantasy';
-    font-size: 1rem;
+    font-size: 0.8rem;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -140,14 +140,13 @@ body {
 
 .playerNamePlate {
     position: absolute;
-    right: 15%;
+    right: 12%;
     top: 10%;
     font-size: 1.25rem;
 }
 
 .info .progress {
     position: absolute;
-    font-size: 14px;
     left: 45%;
     height: 12%;
     top: 15%;
@@ -156,7 +155,6 @@ body {
 
 .enemyStats .progress {
     position: absolute;
-    font-size: 14px;
     left: 7%;
     height: 12%;
     top: 15%;
@@ -178,14 +176,13 @@ body {
 
 .playerHp, .enemyHp {
     position:absolute;
-    font-size: 14px;
+    font-size: 1rem;
     color: black;
     top: 10%;
-    left: 18%;
-}
+    left: 25%;
+} 
 
 #playerHealth .progress-bar , #enemyHealth  .progress-bar{
-    font-size: 16px;
     transition: width .5s linear;
     background-image: linear-gradient(to right, rgb(0, 197, 0), rgb(0, 145, 0));
     display: flex;
@@ -341,3 +338,23 @@ body {
     top: 63%;
 }
 
+@media only screen and (max-width: 823px) {
+    .playerHp, .enemyHp {
+      font-size: 0.8rem;
+    }
+    .playerHp {
+        left: 15%;
+    }
+    .enemyHp {
+        left: 10%;
+    }
+    .playerNamePlate, .enemyNamePlate, .gameRules, .pauseAudioButton, .startButton, .aboutButton {
+        font-size: 0.75rem;
+    }
+    .aboutPage {
+        font-size: 0.65rem;
+    }
+    .enemyNamePlate {
+        right: 8%;
+    }
+}  
