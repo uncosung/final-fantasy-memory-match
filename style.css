@@ -357,4 +357,7 @@ body {
     .enemyNamePlate {
         right: 8%;
     }
+    .victoryNewGame {
+        font-size: 0.75rem;
+    }
 }  
