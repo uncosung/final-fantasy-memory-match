@@ -339,6 +339,9 @@ body {
 }
 
 @media only screen and (max-width: 823px) {
+    .info {
+        font-size: 0.6rem;
+    }
     .playerHp, .enemyHp {
       font-size: 0.8rem;
     }
