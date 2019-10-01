@@ -24,4 +24,6 @@ function startApp () {
     $('.newGame').on('click', game.newGamePress);
     $('.pauseAudioButton').on('click', music.pauseGameAudio);
     $('.victoryNewGame').on('click', game.newGamePress);
+    $('.portraitStats').on('click', game.showStats);
+    $('.portraitStatsHide').on('click', game.hideStats);
 }

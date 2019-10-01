@@ -239,4 +239,20 @@ class Game {
         this.aboutPage.hide();
         this.victoryNewGame.hide();
     }
+    showStats () {
+        $('.portraitStats').css('visibility', 'hidden');
+        $('.matches').css('visibility', 'visible');
+        $('.attempts').css('visibility', 'visible');
+        $('.accuracy').css('visibility', 'visible');
+        $('.gamesPlayed').css('visibility', 'visible');
+        $('.portraitStatsHide').css('visibility', 'visible');
+    }
+    hideStats () {
+        $('.portraitStats').css('visibility', 'visible');
+        $('.matches').css('visibility', 'hidden');
+        $('.attempts').css('visibility', 'hidden');
+        $('.accuracy').css('visibility', 'hidden');
+        $('.gamesPlayed').css('visibility', 'hidden');
+        $('.portraitStatsHide').css('visibility', 'hidden');
+    }
 }
