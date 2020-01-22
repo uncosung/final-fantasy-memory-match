@@ -11,6 +11,7 @@ body {
 }
 
 .gameBody {
+    margin-bottom: 1px;
     height: 80%;
     position: relative;
 }
@@ -221,7 +222,8 @@ body {
 
 .gameRules {
     position: absolute;
-    background-color: none;
+    background: transparent;
+    border: none;
     font-size: 16px;
     color: white;
     bottom: 22%;

@@ -159,10 +159,12 @@ class Game {
         location.reload();
     }
     highScoreDisplay() {
+        music.playCursorSound();
         this.initialDiv.show();
         this.victoryNewGame.hide();
     }
     addInitials() {
+        music.playCursorSound();
         let initials = this.initials.val();
         let high_score = this.attempts;
         if (this.initials.val().length === 3) {
