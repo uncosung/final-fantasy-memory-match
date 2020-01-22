@@ -14,9 +14,13 @@ body {
     height: 80%;
     position: relative;
 }
-
+.rowContainer {
+    position: relative;
+    height: 33%;
+    width: 100%;
+}
 .row {
-    height: 33.33%;
+    height: 100%;
     position: relative;
 }
 
@@ -33,6 +37,7 @@ body {
     left: 5%;
     height: 90%;
     width: 90%;
+    margin: 2px;
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -211,7 +216,7 @@ body {
     position: absolute;
     top: 8%;
     right: 10%;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .gameRules {
@@ -256,7 +261,7 @@ body {
     top: 0;
 }
 
-.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRules {
+.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRule, #initialDiv, .submitInitials, #errorDiv {
     font-family: 'finalfantasy';
     position: absolute;
     background-color: transparent;
@@ -316,12 +321,26 @@ body {
     width: 40%;
 }
 
-.victoryNewGame{
+.victoryNewGame, #initialDiv, #errorDiv{
     font-size: 1.5rem;
     color: white;
     text-align: center;
-    bottom: 8%;
+}
+.victoryNewGame {
     left: 50%;
+    bottom: 8%;
+}
+#initialDiv{
+    left: 40%;
+    bottom: 8%;    
+}
+#errorDiv {
+    left: 45%;
+    bottom: 5%;
+}
+#initials {
+    color: black;
+    width: 15%;
 }
 
 .newGame{
@@ -342,12 +361,65 @@ body {
     top: 63%;
 }
 
-@media only screen and (max-width: 823px) {
-    .info {
-        font-size: 0.6rem;
+#highScoreDiv {
+    z-index: 1000;
+    position: absolute;
+    font-size: 2.5rem;
+    font-family: 'finalfantasy';
+    left: 30%;
+    top: 20%;
+    color: white;
+    text-align: center;
+    width: 40%;
+}
+
+#resetButton {
+    background: transparent;
+    border: none;
+}
+
+.scores {
+    float: left;
+    width: 100%;
+}
+@media only screen and (max-width: 1366px) and (min-width: 900px) {
+    #highScoreDiv {
+        font-size: 1.5rem;
     }
-    .playerHp, .enemyHp {
-      font-size: 0.8rem;
+    .info, .playerHp, .enemyHp {
+        font-size: 0.8rem;
+    }
+    .playerNamePlate, .enemyNamePlate, .gameRules, .pauseAudioButton, .startButton, .aboutButton {
+        font-size: 0.9rem;
+    }
+    .enemyNamePlate {
+        top: 10%;
+    }
+    .gameRules {
+        bottom: 45%;
+    }
+    .pauseAudioButton {
+        bottom: 50%;
+    }
+    .matches {
+        top: 20%;
+    }
+    .attempts {
+        top: 30%;
+    }
+    .accuracy {
+        top: 40%;
+    }
+    .gamesPlayed {
+        top: 50%;
+    }
+}
+@media only screen and (max-width: 823px) {
+    #highScoreDiv {
+        font-size: 1.3rem;
+    }
+    .info, .playerHp, .enemyHp {
+        font-size: 0.6rem;
     }
     .playerHp {
         left: 15%;
@@ -356,20 +428,23 @@ body {
         left: 10%;
     }
     .playerNamePlate, .enemyNamePlate, .gameRules, .pauseAudioButton, .startButton, .aboutButton {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
     .aboutPage {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+    }
+    .aboutDetails {
+        top: 5%;
     }
     .enemyNamePlate {
         right: 8%;
     }
-    .victoryNewGame {
+    .victoryNewGame, #initialDiv, #errorDiv {
         font-size: 0.75rem;
     }
 }  
 
-@media only screen and (-webkit-min-device-pixel-ratio:3) and (max-width: 823px) and (min-width: 374px) and (orientation:portrait) {
+@media only screen and (-webkit-min-device-pixel-ratio:2) and (max-width: 823px) and (min-width: 374px) and (orientation:portrait) {
     .gameStart {
         background-size: 175%;
         background-color: white;

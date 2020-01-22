@@ -27,6 +27,9 @@ class Game {
         this.enemyIdle = $('.enemyIdle');
         this.enemyCasting = $('.enemyCasting');
         this.enemyDamaged = $('.enemyDamaged');
+        this.initialDiv = $('#initialDiv');
+        this.initials = $('#initials');
+        this.highScoreDiv = $('#highScoreDiv');
         this.toggleBack = this.toggleBack.bind(this);
         this.delayToggle = this.delayToggle.bind(this);
         this.hideStart = this.hideStart.bind(this);
@@ -37,6 +40,9 @@ class Game {
         this.victoryReset = this.victoryReset.bind(this);
         this.setCanBeClicked = this.setCanBeClicked.bind(this);
         this.playVictory = this.playVictory.bind(this);
+        this.highScoreDisplay = this.highScoreDisplay.bind(this);
+        this.addInitials = this.addInitials.bind(this);
+        this.displayTopScores = this.displayTopScores.bind(this);
     }
     toggleBack() {
         if (!this.canBeClicked){
@@ -147,7 +153,65 @@ class Game {
         music.playContinueGameSound();
     }
     newGamePress() {
+        this.highScoreDisplay();
+    }
+    reloadPage() {
         location.reload();
+    }
+    highScoreDisplay() {
+        this.initialDiv.show();
+        this.victoryNewGame.hide();
+    }
+    addInitials() {
+        let initials = this.initials.val();
+        let high_score = this.attempts;
+        if (this.initials.val().length === 3) {
+            $('#errorDiv').hide();
+            fetch('api/add_score.php', {
+                method: 'POST',
+                body: JSON.stringify(
+                    {initials, high_score}
+                ),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(
+                    fetch('api/add_score.php', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then (res => res.json())
+                    .then(allScores => this.displayTopScores(allScores))
+                )
+        }
+        else {
+            let errorDiv = document.createElement('div');
+            errorDiv.id = 'errorDiv';
+            errorDiv.innerHTML = '3 CHARACTERS REQUIRED';
+            document.body.appendChild(errorDiv);
+        }
+    }
+    displayTopScores (scores) {
+        this.initialDiv.hide();
+        let lineBreak = document.createElement('br');
+        scores.sort((a,b) => parseFloat(a.guesses) - parseFloat(b.guesses));
+        for (let i = 0; i<10; i++){
+            let scoreDiv = document.createElement('div');
+            scoreDiv.class = 'scores';
+            scoreDiv.innerHTML = scores[i].initials + ' - ' + scores[i].guesses;
+            document.getElementById('highScoreDiv').appendChild(scoreDiv);
+        }
+        let resetButton = document.createElement('BUTTON');
+        resetButton.id = 'resetButton';
+        resetButton.innerHTML = 'PLAY AGAIN';
+        document.getElementById('highScoreDiv').appendChild(lineBreak);
+        document.getElementById('highScoreDiv').appendChild(resetButton);
+        $('#resetButton').on('click', this.reloadPage);
+        this.highScoreDiv.show();
     }
     displayStats () {
         $('.matches').text('MATCHES: ' + this.matches);
@@ -231,6 +295,7 @@ class Game {
         this.aboutPage.hide();
     }
     hideTransitions() {
+        this.highScoreDiv.hide();
         this.gameOver.hide();
         this.blackMageFire.hide();
         this.enemyCasting.hide();
@@ -238,6 +303,7 @@ class Game {
         this.victory.hide();
         this.aboutPage.hide();
         this.victoryNewGame.hide();
+        this.initialDiv.hide();
     }
     showStats () {
         $('.portraitStats').css('visibility', 'hidden');
