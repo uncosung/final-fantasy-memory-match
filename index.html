@@ -16,7 +16,8 @@
 </head>
 <body>
 <div class="gameBody">
-    <div class="row">
+    <div class="container rowContainer">
+    <div class="row cardRow">
         <div class="cardContainer">
             <div class="card">
                 <div class="front"></div>
@@ -54,7 +55,9 @@
             </div>
         </div>
     </div>
-    <div class="row">
+</div>
+<div class="container rowContainer">
+    <div class="row cardRow">
         <div class="cardContainer">
             <div class="card">
                 <div class="front"></div>
@@ -92,7 +95,9 @@
             </div>
         </div>
     </div>
-    <div class="row">
+</div>
+<div class="container rowContainer">
+    <div class="row cardRow">
         <div class="cardContainer">
             <div class="card">
                 <div class="front"></div>
@@ -129,6 +134,7 @@
                 <div class="back"></div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 <div class="stats">
@@ -198,6 +204,16 @@
 <video id="victory">
     <source type="video/mp4" src="videos/victory.mp4">
 </video>
-<button class="victoryNewGame"> RELOAD </button>
+<button class="victoryNewGame"> ADD INITIALS </button>
+<div id="initialDiv">
+    INITIALS: <input id="initials" type="text" maxlength="3">
+    <button class="submitInitials"> ADD </button>
+</div>
+<div id="highScoreDiv">
+    <div>
+    HIGH SCORES
+    </div>
+    <br>
+</div>
 </body>
 </html>

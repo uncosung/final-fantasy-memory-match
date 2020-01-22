@@ -5,11 +5,9 @@ let videos;
 $(document).ready(startApp)
 
 function startApp () {
-    console.log('app started');
     game = new Game();
     music = new Music;
     images = new Images();
-    // videos = new videos;
     game.hideTransitions();
     game.displayStats();
     images.shuffleArray(images.newImageArray);
@@ -26,4 +24,5 @@ function startApp () {
     $('.victoryNewGame').on('click', game.newGamePress);
     $('.portraitStats').on('click', game.showStats);
     $('.portraitStatsHide').on('click', game.hideStats);
+    $('.submitInitials').on('click', game.addInitials);
 }

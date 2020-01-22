@@ -1,0 +1,15 @@
+{
+    "name": "memory_match_oop",
+    "version": "1.0.0",
+    "description": "Final Fantasy memory match card game",
+    "scripts": {
+        "dev": "webpack-dev-server"
+    },
+    "devDependencies": {
+        "webpack": "^4.41.5",
+        "webpack-dev-server": "^3.10.1"
+    },
+    "dependencies": {
+        "webpack-cli": "^3.3.10"
+    }
+}
