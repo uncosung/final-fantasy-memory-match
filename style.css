@@ -44,10 +44,12 @@ body {
     transform-style: preserve-3d;
 }
 
-.card:hover {
+.unmatched:hover {
     box-shadow: 0 2px 10px 5px #ffffff;
 }
-
+.matched:hover {
+    box-shadow: 0px
+}
 .front, .back {
     height: 100%;
     width: 100%;
@@ -263,7 +265,7 @@ body {
     top: 0;
 }
 
-.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRule, #initialDiv, .submitInitials, #errorDiv {
+.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRule, #initialDiv, .submitInitials, #errorDiv, #score {
     font-family: 'finalfantasy';
     position: absolute;
     background-color: transparent;
@@ -310,6 +312,8 @@ body {
 }
 
 .aboutDetails {
+    margin-top: 3vh;
+    font-size: 0.8vw;
     position:relative;
     width: 90%;
 }
@@ -320,7 +324,6 @@ body {
     bottom: 33%;
     right: 10%;
     height:6%;
-    width: 40%;
 }
 
 .victoryNewGame, #initialDiv, #errorDiv{
@@ -329,12 +332,16 @@ body {
     text-align: center;
 }
 .victoryNewGame {
-    left: 50%;
-    bottom: 8%;
+    left: 45%;
+    top: 60%;
 }
 #initialDiv{
-    left: 40%;
-    bottom: 8%;    
+    left: 35%;
+    top: 60%;    
+}
+#score{
+    position: relative;
+    margin-top: 10px;
 }
 #errorDiv {
     left: 45%;
@@ -493,5 +500,13 @@ body {
     }
     .matches, .attempts, .accuracy, .gamesPlayed, .portraitStatsHide {
         visibility: hidden;
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:2) and (orientation:landscape) {
+    .matches, .attempts, .accuracy, .gamesPlayed {
+        visibility: visible;
+    }
+    .portraitStats, .portraitStatsHide {
+        visibility: hidden !important
     }
 }

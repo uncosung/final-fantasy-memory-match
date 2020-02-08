@@ -30,6 +30,7 @@ class Game {
         this.initialDiv = $('#initialDiv');
         this.initials = $('#initials');
         this.highScoreDiv = $('#highScoreDiv');
+        this.scoreDiv = $('#score');
         this.toggleBack = this.toggleBack.bind(this);
         this.delayToggle = this.delayToggle.bind(this);
         this.hideStart = this.hideStart.bind(this);
@@ -43,19 +44,19 @@ class Game {
         this.highScoreDisplay = this.highScoreDisplay.bind(this);
         this.addInitials = this.addInitials.bind(this);
         this.displayTopScores = this.displayTopScores.bind(this);
+        this.fetchScores = this.fetchScores.bind(this);
     }
     toggleBack() {
         if (!this.canBeClicked){
             return;
         }
-        music.playCursorSound();
         if (this.firstCardClicked === null){
             this.firstCardClicked = event.target.previousElementSibling;
             this.firstFlipped = event.path[1];
             this.firstParent = event.target.parentElement;
             $(this.firstCardClicked).off('click');
             $(this.firstFlipped).toggleClass('flipped');
-            
+            music.playCursorSound();
         }
         else {
             this.secondCardClicked = event.target.previousElementSibling;
@@ -64,12 +65,21 @@ class Game {
             if(this.secondCardClicked === null || this.firstCardClicked === this.secondCardClicked){
                 return;
             }
+            music.playCursorSound();
             $(this.secondFlipped).toggleClass('flipped');
             if ($(this.firstCardClicked).css('background-image') === $(this.secondCardClicked).css('background-image') && this.firstCardClicked !== this.secondCardClicked){
                 $(this.firstParent).off('click');
                 $(this.firstCardClicked).off('click');
                 $(this.secondCardClicked).off('click');
                 $(this.secondParent).off('click');
+                $(this.firstParent).removeClass('unmatched');
+                $(this.firstCardClicked).removeClass('unmatched');
+                $(this.secondCardClicked).removeClass('unmatched');
+                $(this.secondParent).removeClass('unmatched');
+                $(this.firstParent).addClass('matched');
+                $(this.firstCardClicked).addClass('matched');
+                $(this.secondCardClicked).addClass('matched');
+                $(this.secondParent).addClass('matched');
                 this.matchCounter++;
                 this.matches++;
                 this.attempts++;
@@ -161,6 +171,8 @@ class Game {
     highScoreDisplay() {
         music.playCursorSound();
         this.initialDiv.show();
+        let userScore = this.attempts;
+        this.scoreDiv.append(userScore);
         this.victoryNewGame.hide();
     }
     addInitials() {
@@ -179,16 +191,7 @@ class Game {
                 }
             })
                 .then(res => res.json())
-                .then(
-                    fetch('api/add_score.php', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then (res => res.json())
-                    .then(allScores => this.displayTopScores(allScores))
-                )
+                .then(setTimeout(this.fetchScores, 100))
         }
         else {
             let errorDiv = document.createElement('div');
@@ -196,6 +199,16 @@ class Game {
             errorDiv.innerHTML = '3 CHARACTERS REQUIRED';
             document.body.appendChild(errorDiv);
         }
+    }
+    fetchScores () {
+        fetch('api/add_score.php', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then (res => res.json())
+        .then (allScores => this.displayTopScores(allScores))
     }
     displayTopScores (scores) {
         this.initialDiv.hide();
