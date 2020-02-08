@@ -11,12 +11,17 @@ body {
 }
 
 .gameBody {
+    margin-bottom: 1px;
     height: 80%;
     position: relative;
 }
-
+.rowContainer {
+    position: relative;
+    height: 33%;
+    width: 100%;
+}
 .row {
-    height: 33.33%;
+    height: 100%;
     position: relative;
 }
 
@@ -33,15 +38,18 @@ body {
     left: 5%;
     height: 90%;
     width: 90%;
+    margin: 2px;
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.card:hover {
+.unmatched:hover {
     box-shadow: 0 2px 10px 5px #ffffff;
 }
-
+.matched:hover {
+    box-shadow: 0px
+}
 .front, .back {
     height: 100%;
     width: 100%;
@@ -72,6 +80,10 @@ body {
     position: relative;
 }
 
+.portraitStats, .portraitStatsHide {
+    visibility: hidden;
+}
+
 .blackMageIdle, .blackMageFire {
     position: absolute;
     height: 80%;
@@ -100,7 +112,7 @@ body {
 .info {
     background-image: url(images/hpBar.png);
     font-family: 'finalfantasy';
-    font-size: 12px;
+    font-size: 0.8rem;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -111,42 +123,89 @@ body {
     width:45%;
 }
 
-.matches, .attempts, .accuracy, .gamesPlayed {
+.matches, .attempts, .accuracy, .gamesPlayed, .infoTitle {
     position: absolute;
     left: 5%;
     height: 20%;
     width: 30%;
 }
 
-.matches {
+.infoTitle {
     top: 10%;
 }
 
-.attempts {
+.matches {
     top: 25%;
 }
 
-.accuracy {
+.attempts {
     top: 40%;
 }
 
-.gamesPlayed {
+.accuracy {
     top: 55%;
 }
 
-.hp {
+.gamesPlayed {
+    top: 70%;
+}
+
+.playerNamePlate {
     position: absolute;
-    font-size: 14px;
-    left: 45.5%;
-    top:15%;
-    width:19%;
-    height:12%;
+    right: 12%;
+    top: 10%;
+    font-size: 1.25rem;
+}
+
+.info .progress {
+    position: absolute;
+    left: 45%;
+    height: 12%;
+    top: 15%;
+    width: 19%;
+}
+
+.enemyStats .progress {
+    position: absolute;
+    left: 7%;
+    height: 12%;
+    top: 15%;
+    width: 40%
+}
+
+#playerHealth, #enemyHealth {
+    position: absolute;
+    height: 15%;
+}
+
+#playerHealth {
+    width: 19%;
+}
+
+#enemyHealth {
+    width: 42.5%;
+}
+
+.playerHp, .enemyHp {
+    position:absolute;
+    font-size: 1rem;
+    color: black;
+    top: 10%;
+    left: 25%;
+} 
+
+#playerHealth .progress-bar , #enemyHealth  .progress-bar{
+    transition: width .5s linear;
+    background-image: linear-gradient(to right, rgb(0, 197, 0), rgb(0, 145, 0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .enemyStats{
     position: absolute;
     font-family: 'finalfantasy';
-    font-size: 14px;
+    font-size: 0.75rem;
     background-image: url(images/enemyHp.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -156,12 +215,21 @@ body {
     width: 20%;
 }
 
-.enemyHp {
+.enemyNamePlate{
     position: absolute;
-    left: 7%;
-    top: 15%;
-    width: 19%;
-    height: 12%;
+    top: 8%;
+    right: 10%;
+    font-size: 1rem;
+}
+
+.gameRules {
+    position: absolute;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+    bottom: 22%;
+    left: 25%;
 }
 
 .gameStart {
@@ -197,7 +265,7 @@ body {
     top: 0;
 }
 
-.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton {
+.continue, .newGame, .victoryNewGame,.startButton,.pauseAudioButton, .aboutButton, .gameRule, #initialDiv, .submitInitials, #errorDiv, #score {
     font-family: 'finalfantasy';
     position: absolute;
     background-color: transparent;
@@ -205,7 +273,6 @@ body {
 }
 
 .startButton, .aboutButton{
-    font-size: 16px;
     color: black;
     height: 6%;
     width: 10%;
@@ -225,7 +292,7 @@ body {
     font-family: 'finalfantasy';
     background-color: white;
     position: absolute;
-    font-size: 1vw;
+    font-size: 0.85vw;
     height: 40%;
     width: 25%;
     left: 35%;
@@ -239,34 +306,54 @@ body {
     height: 5%;
     width: 5%;
     top: 0;
-    right: 1%;
+    right: 3%;
     border: none;
     background: transparent;
 }
 
 .aboutDetails {
+    margin-top: 3vh;
+    font-size: 0.8vw;
     position:relative;
+    width: 90%;
 }
 
 .pauseAudioButton{
-    font-size: 16px;
+    font-size: 1.5rem;
     color: white;
     bottom: 33%;
-    right: 15%;
+    right: 10%;
     height:6%;
-    width: 40%;
 }
 
-.victoryNewGame{
-    font-size: 18px;
+.victoryNewGame, #initialDiv, #errorDiv{
+    font-size: 1.5rem;
     color: white;
     text-align: center;
-    bottom: 8%;
-    left: 50%;
+}
+.victoryNewGame {
+    left: 45%;
+    top: 60%;
+}
+#initialDiv{
+    left: 35%;
+    top: 60%;    
+}
+#score{
+    position: relative;
+    margin-top: 10px;
+}
+#errorDiv {
+    left: 45%;
+    bottom: 5%;
+}
+#initials {
+    color: black;
+    width: 15%;
 }
 
 .newGame{
-    font-size: 16px;
+    font-size: 1.5rem;
     color: white;
     height: 7%;
     width: 15%;
@@ -275,7 +362,7 @@ body {
 }
 
 .continue {
-    font-size: 16px;
+    font-size: 1.5rem;
     color: white;
     height: 7%;
     width: 15%;
@@ -283,3 +370,143 @@ body {
     top: 63%;
 }
 
+#highScoreDiv {
+    z-index: 1000;
+    position: absolute;
+    font-size: 2.5rem;
+    font-family: 'finalfantasy';
+    left: 30%;
+    top: 20%;
+    color: white;
+    text-align: center;
+    width: 40%;
+}
+
+#resetButton {
+    background: transparent;
+    border: none;
+}
+
+.scores {
+    float: left;
+    width: 100%;
+}
+@media only screen and (max-width: 1366px) and (min-width: 900px) {
+    #highScoreDiv {
+        font-size: 1.5rem;
+    }
+    .info, .playerHp, .enemyHp {
+        font-size: 0.8rem;
+    }
+    .playerNamePlate, .enemyNamePlate, .gameRules, .pauseAudioButton, .startButton, .aboutButton {
+        font-size: 0.9rem;
+    }
+    .enemyNamePlate {
+        top: 10%;
+    }
+    .gameRules {
+        bottom: 45%;
+    }
+    .pauseAudioButton {
+        bottom: 50%;
+    }
+    .matches {
+        top: 20%;
+    }
+    .attempts {
+        top: 30%;
+    }
+    .accuracy {
+        top: 40%;
+    }
+    .gamesPlayed {
+        top: 50%;
+    }
+}
+@media only screen and (max-width: 823px) {
+    #highScoreDiv {
+        font-size: 1.3rem;
+    }
+    .info, .playerHp, .enemyHp {
+        font-size: 0.6rem;
+    }
+    .playerHp {
+        left: 15%;
+    }
+    .enemyHp {
+        left: 10%;
+    }
+    .playerNamePlate, .enemyNamePlate, .gameRules, .pauseAudioButton, .startButton, .aboutButton {
+        font-size: 0.6rem;
+    }
+    .aboutPage {
+        font-size: 0.6rem;
+    }
+    .aboutDetails {
+        top: 5%;
+    }
+    .enemyNamePlate {
+        right: 8%;
+    }
+    .victoryNewGame, #initialDiv, #errorDiv {
+        font-size: 0.75rem;
+    }
+}  
+
+@media only screen and (-webkit-min-device-pixel-ratio:2) and (max-width: 823px) and (min-width: 374px) and (orientation:portrait) {
+    .gameStart {
+        background-size: 175%;
+        background-color: white;
+        background-repeat: no-repeat;
+    }
+    .enemy img, .blackMageIdle, .blackMageFire {
+        height: 30%;
+    }
+    .enemy img {
+        top: 12%;
+    }
+    .enemyNamePlate, .playerNamePlate, .enemyHp, .playerHp {
+        font-size: 0.5rem;
+    }
+    #enemyHealth {
+        top: 2%;
+        height: 4%;
+        left: 20%;
+        width: 65%;
+    }
+    #playerHealth {
+        top: 2%;
+        height: 4%;
+        left: 55%;
+        width: 35%;
+    }
+    .info {
+        font-size: 0.5rem;
+    }
+    .infoTitle {
+        top: 7%;
+    }
+    .portraitStats {
+        visibility: visible;
+        position: absolute;
+        top: 12%;
+        left: 5%;
+        font-size: 0.4rem;
+    }
+    .portraitStatsHide {
+        position: absolute;
+        top: 85%;
+        left: 5%;
+    }
+    .matches, .attempts, .accuracy, .gamesPlayed, .portraitStatsHide {
+        visibility: hidden;
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:2) and (orientation:landscape) {
+    .matches, .attempts, .accuracy, .gamesPlayed {
+        visibility: visible;
+    }
+    .portraitStats, .portraitStatsHide {
+        visibility: hidden !important
+    }
+}
