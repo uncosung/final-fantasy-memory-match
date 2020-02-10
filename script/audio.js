@@ -57,6 +57,7 @@ class Music {
         this.battleAudio.play();
     }
     pauseGameAudio() {
+        this.playCursorSound();
         if (this.audioStatus){
             this.battleAudio.pause();
             this.audioStatus = !this.audioStatus;
