@@ -1,6 +1,8 @@
 # Final Fantasy Memory Match
 * Live Demo: __https://memory-match.ericsung.dev__
 
+![](memory-match.gif)
+
 <hr/>
 
 A memory matching game themed in the various games of the Final Fantasy franchise. Pick two cards to see if they match. For every incorrect match you make, you (the black mage) take damage. For every correct match you make, the enemy (the blue slime) takes damage. If your HP reaches 0, the game is over. If the slime's HP reaches 0, you win! After your victory, you can add your initials to the high score database.
