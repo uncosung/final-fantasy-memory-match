@@ -9,7 +9,9 @@ body {
     font-family: 'finalfantasy';
     src:url('fonts/finalFantasy.ttf');
 }
-
+button:focus {
+    outline: none !important;
+}
 .gameBody {
     margin-bottom: 1px;
     height: 80%;
