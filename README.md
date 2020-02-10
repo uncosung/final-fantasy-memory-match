@@ -1,17 +1,42 @@
-# Memory Match
+# Final Fantasy Memory Match
+* Live Demo: __https://memory-match.ericsung.dev__
 
-## Overview
+<hr/>
 
-> Memory match is a game with 18 cards face down and the player has to try and match all 9 pairs of matching cards by remembering the position of the cards.
-Once the player has match 2 cards they will be displayed face up until all pairs have been matched. Once all pairs have been matched the user will be
-displayed a message that they have won the game. As the user clicks through the cards stats will be kept letting the user know how many attempts and the
-accuracy of their choices.
+A memory matching game themed in the various games of the Final Fantasy franchise. Pick two cards to see if they match. For every incorrect match you make, you (the black mage) take damage. For every correct match you make, the enemy (the blue slime) takes damage. If your HP reaches 0, the game is over. If the slime's HP reaches 0, you win! After your victory, you can add your initials to the high score database.
 
-> <a href="https://docs.google.com/presentation/d/1zlSHYatpaPsrq4LuOtyuE-RRIom4vRo-lXovQ0zPV0U/pub?start=false&loop=false&delayms=3000" target="_blank">Design Overview</a>
+## Getting Started
+### Initial Setup
+1. Fork this repo and clone your fork from the terminal.
+```
+$ git clone https://github.com/[user_name]/final-fantasy-memory-match.git
+```
+2. Navigate into the cloned directory and install the necessary dependencies.
+```
+$ npm install
+```
+3. Start a dev environment with access to Apache and MySQL and:
+    * Check that port is directed to ```3000```
+    * Create a database titled ```memory_match``` in phpMyAdmin and import the ```high-scores.sql``` file
+    * Check that the root directory of the server is set to the ```public``` folder
+4. Initiate the dev server
+```
+$ npm run dev
+```
+5. Go to ```localhost:3000``` and enjoy!
 
-> <a href="https://drive.google.com/open?id=0B3R9g7F9YRS6SHd3Q3lRdWF0RkU" target="_blank">Flow Document</a>
+## Contributing
+Please feel free to fork this repo, make changes, submit pull requests, and send suggestions to eric.k.sung@gmail.com to make this app better.
 
-> ### Versions
-> - Version 1.0 (v1.0) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version1.0">View Details</a>
-> - Version 0.5 (v0.5) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version0.5">View Details</a>
-> - Version 0.1 (v0.1) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version0.1">View Details</a>
+## Built With
+* Front-End
+  * [JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+  * [jQuery](https://https://jquery.com/)
+* Back-End
+  * [PHP](https://php.net/)
+  * [MySQL](https://www.mysql.com/) + [phpMyAdmin](https://www.phpmyadmin.net/)
+
+## License
+[MIT License](https://opensource.org/licenses/mit-license.php)
+
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
