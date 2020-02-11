@@ -48,9 +48,13 @@ button:focus {
 
 .unmatched:hover {
     box-shadow: 0 2px 10px 5px #ffffff;
+    cursor: pointer;
 }
-.matched:hover {
-    box-shadow: 0px
+.matched:hover{
+    box-shadow: 0px;    
+}
+.flipped{
+    pointer-events: none;
 }
 .front, .back {
     height: 100%;
@@ -333,10 +337,21 @@ button:focus {
     color: white;
     text-align: center;
 }
+@keyframes colorchange {
+    0% {box-shadow: 0 2px 10px 5px #ffffff;}
+    100% {box-shadow: 0px;}
+}
+@-webkit-keyframes colorchange {
+    0% {box-shadow: 0 2px 10px 5px #ffffff;}
+    100% {box-shadow: 0px;}
+}
 .victoryNewGame {
     left: 45%;
     top: 60%;
+    animation: colorchange 1s alternate infinite;
+    -webkit-animation: colorchange 1s alternate infinite;
 }
+
 #initialDiv{
     left: 35%;
     top: 60%;    
@@ -510,5 +525,16 @@ button:focus {
     }
     .portraitStats, .portraitStatsHide {
         visibility: hidden !important
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 767px) and (orientation:portrait) {
+    .enemyNamePlate, .enemyHp, .playerNamePlate, .playerHp {
+        font-size: 0.65rem;
+    }
+    .info {
+        font-size: 0.75rem;
+    }
+    .portraitStats {
+        font-size: 0.75rem;
     }
 }
